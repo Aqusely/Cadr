@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		EDBF1CE63081643100423E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDBF1CB03080115A00423E24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDBF1CB73080115A00423E24;
+			remoteInfo = Cadr;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EDBF1CB83080115A00423E24 /* Cadr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBF1CE23081643100423E24 /* CadrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,10 +40,22 @@
 			path = Cadr;
 			sourceTree = "<group>";
 		};
+		EDBF1CE33081643100423E24 /* CadrTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CadrTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EDBF1CB53080115A00423E24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBF1CDF3081643100423E24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				EDBF1CBA3080115A00423E24 /* Cadr */,
+				EDBF1CE33081643100423E24 /* CadrTests */,
 				EDBF1CB93080115A00423E24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				EDBF1CB83080115A00423E24 /* Cadr.app */,
+				EDBF1CE23081643100423E24 /* CadrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,29 @@
 			productReference = EDBF1CB83080115A00423E24 /* Cadr.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EDBF1CE13081643100423E24 /* CadrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDBF1CE83081643100423E24 /* Build configuration list for PBXNativeTarget "CadrTests" */;
+			buildPhases = (
+				EDBF1CDE3081643100423E24 /* Sources */,
+				EDBF1CDF3081643100423E24 /* Frameworks */,
+				EDBF1CE03081643100423E24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDBF1CE73081643100423E24 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EDBF1CE33081643100423E24 /* CadrTests */,
+			);
+			name = CadrTests;
+			packageProductDependencies = (
+			);
+			productName = CadrTests;
+			productReference = EDBF1CE23081643100423E24 /* CadrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +143,10 @@
 				TargetAttributes = {
 					EDBF1CB73080115A00423E24 = {
 						CreatedOnToolsVersion = 26.6;
+					};
+					EDBF1CE13081643100423E24 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = EDBF1CB73080115A00423E24;
 					};
 				};
 			};
@@ -113,12 +165,20 @@
 			projectRoot = "";
 			targets = (
 				EDBF1CB73080115A00423E24 /* Cadr */,
+				EDBF1CE13081643100423E24 /* CadrTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EDBF1CB63080115A00423E24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBF1CE03081643100423E24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +195,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDBF1CDE3081643100423E24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDBF1CE73081643100423E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDBF1CB73080115A00423E24 /* Cadr */;
+			targetProxy = EDBF1CE63081643100423E24 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EDBF1CC13080115B00423E24 /* Debug */ = {
@@ -329,6 +404,48 @@
 			};
 			name = Release;
 		};
+		EDBF1CE93081643100423E24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6YM3A3W95R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftWork.CadrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cadr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cadr";
+			};
+			name = Debug;
+		};
+		EDBF1CEA3081643100423E24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6YM3A3W95R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftWork.CadrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cadr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cadr";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +463,15 @@
 			buildConfigurations = (
 				EDBF1CC43080115B00423E24 /* Debug */,
 				EDBF1CC53080115B00423E24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDBF1CE83081643100423E24 /* Build configuration list for PBXNativeTarget "CadrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDBF1CE93081643100423E24 /* Debug */,
+				EDBF1CEA3081643100423E24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
