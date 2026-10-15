@@ -44,10 +44,10 @@ struct MovieDetails: Codable, Identifiable{
 struct Movie: Codable, Identifiable {
     let id: Int
     let title: String
-    let releaseDate: String
     let voteAverage: Double
     
     // Optional
+    let releaseDate: String?
     let backdropPath: String?
     let posterPath: String?
     
