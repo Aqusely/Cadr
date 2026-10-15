@@ -66,22 +66,3 @@ struct TakeAnswerFromServer<Item: Codable>: Codable {
     let page: Int
     let results: [Item]
 }
-
-// Ошибки сервера
-enum APIError: LocalizedError {
-    case noNetwork
-    case badRequest
-    case unableToParseTheData
-    
-    var errorDescription: String? {
-        switch self {
-        case .noNetwork:
-            return "Нет сети"
-        case .badRequest:
-            return "Плохой код ответа"
-        case .unableToParseTheData:
-            return "Не удалось разобрать данные"
-        }
-    }
-    
-}
