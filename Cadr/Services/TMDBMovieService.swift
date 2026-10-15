@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TMDBMovieService {
+struct TMDBMovieService: MovieService {
 
-    // Популярные фильмы
+    // MARK: Популярные фильмы
     func popularMovies(page number: Int) async throws -> TakeAnswerFromServer<Movie> {
         
         // Создаем URL
@@ -19,23 +19,31 @@ struct TMDBMovieService {
         
         guard let url = components.url else { throw APIError.invalidURL }
         
-        do{
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            return try JSONDecoder().decode(TakeAnswerFromServer<Movie>.self, from: checkData(data: data, response: response))
-        }catch let error as URLError {
-            if error.code.rawValue == -1009 {
-                throw APIError.noNetwork
-            }else{
-                throw APIError.unexpectedError
-            }
-        }catch let error as APIError{
-            throw error
-        }catch is DecodingError{
-            throw APIError.decodingFailed
-        }catch {
-            throw APIError.unexpectedError
-        }
+        return try await tryLoad(url: url)
+    }
+    
+    // MARK: Поиск по фильмам
+    func searchMovies(for query: String) async throws -> TakeAnswerFromServer<Movie>{
+        // Создаем URL
+        var components = try baseComponents()
+        components.path = "/3/search/movie"
+        components.queryItems?.append(URLQueryItem(name: "query", value: query))
+        
+        guard let url = components.url else { throw APIError.invalidURL }
+        
+        return try await tryLoad(url: url)
+    }
+    
+    // MARK: Детали фильма
+    func movieDetails(for id: Int) async throws -> MovieDetails {
+        
+        // Создаем URL
+        var components = try baseComponents()
+        components.path = "/3/movie/\(id)"
+        
+        guard let url = components.url else { throw APIError.invalidURL }
+        
+        return try await tryLoad(url: url)
     }
     
     // Обработка статус кода
@@ -77,6 +85,27 @@ struct TMDBMovieService {
         ]
         
         return components
+    }
+    
+    // Обобщенный do-catch
+    private func tryLoad<T: Decodable>(url: URL) async throws -> T{
+        do{
+            let (data, response) = try await URLSession.shared.data(from: url)
+            return try JSONDecoder().decode(T.self, from: checkData(data: data, response: response))
+            
+        }catch let error as URLError {
+            if error.code.rawValue == -1009 {
+                throw APIError.noNetwork
+            }else{
+                throw APIError.unexpectedError
+            }
+        }catch let error as APIError{
+            throw error
+        }catch is DecodingError{
+            throw APIError.decodingFailed
+        }catch {
+            throw APIError.unexpectedError
+        }
     }
 }
 
