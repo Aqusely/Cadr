@@ -11,15 +11,16 @@ struct RatingBadge: View {
     let voteAverage: Double
     
     var body: some View {
-        VStack{
-            HStack{
-                Image(systemName: "star.fill")
-                Text(String(voteAverage))
-            }
+        HStack(spacing: 4){
+            Image(systemName: "star.fill")
+            Text(voteAverage != 0.0 ? String(format: "%.1f", voteAverage) : "-")
         }
-        .padding(4)
-        .background(Color.green, in: RoundedRectangle(cornerRadius: 16))
-        .font(.system(size: 13))
+        .padding(.vertical, 4)
+        .padding(.horizontal, 6)
+        .background(Color.background.opacity(0.75), in: RoundedRectangle(cornerRadius: 8))
+        .font(.caption.weight(.semibold))
+        .foregroundStyle(Color.gold)
+        
     }
 }
 
