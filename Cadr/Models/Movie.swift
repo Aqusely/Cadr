@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Genre: Codable, Identifiable{
+nonisolated struct Genre: Codable, Identifiable{
     let id: Int
     let name: String
 }
 
 
 // Для Деталей
-struct MovieDetails: Codable, Identifiable{
+nonisolated struct MovieDetails: Codable, Identifiable{
     let id: Int
     let title: String
     let voteAverage: Double
@@ -41,7 +41,7 @@ struct MovieDetails: Codable, Identifiable{
 }
 
 // Для списков
-struct Movie: Codable, Identifiable {
+nonisolated struct Movie: Codable, Identifiable {
     let id: Int
     let title: String
     let voteAverage: Double
@@ -62,7 +62,7 @@ struct Movie: Codable, Identifiable {
 }
 
 // Структура для приема ответа от сервера
-struct TakeAnswerFromServer<Item: Codable>: Codable {
+nonisolated struct TakeAnswerFromServer<Item: Codable>: Codable {
     let page: Int
     let results: [Item]
 }

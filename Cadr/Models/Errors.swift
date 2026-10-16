@@ -8,7 +8,7 @@
 import Foundation
 
 // Ошибки сервера
-enum APIError: LocalizedError {
+nonisolated enum APIError: LocalizedError {
     case noNetwork
     case missingAPIKey
     case invalidURL
