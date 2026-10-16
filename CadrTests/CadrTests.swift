@@ -23,7 +23,7 @@ struct CadrTests {
         #expect(url == result.flatMap{URL(string: $0)})
     }
     
-    @Test func decodeJSON() throws {
+    @Test("popular decode") func popularDecode() throws {
         // Получаем имя сумки
         let bundle = Bundle(for: BundleToken.self)
         
@@ -33,10 +33,32 @@ struct CadrTests {
         }
         
         let data = try Data(contentsOf: url)
-        let _ = try JSONDecoder().decode(TakeAnswerFromServer<Movie>.self, from: data)
+        let decode = try JSONDecoder().decode(TakeAnswerFromServer<Movie>.self, from: data)
+        
+        #expect(decode.page == 1)
+        #expect(decode.results.count == 20)
+        #expect(decode.results[0].id == 640146)
+        #expect(decode.results[19].posterPath == nil)
     }
     
+    @Test("details decode") func detailsDecode() throws {
+        // Получаем имя сумки
+        let bundle = Bundle(for: BundleToken.self)
+        
+        // Получаем адрес файла в сумке
+        guard let url = bundle.url(forResource: "details", withExtension: "json") else {
+            throw APIError.invalidURL
+        }
+        
+        let data = try Data(contentsOf: url)
+        let decode = try JSONDecoder().decode(MovieDetails.self, from: data)
     
+        guard let _ = decode.runtime, !decode.genres.isEmpty else {throw APIError.decodingFailed}
+        
+        #expect(decode.title == "Finding Nemo")
+        #expect(decode.genres[0].name == "Animation")
+    
+    }
 }
 
 final class BundleToken {}
