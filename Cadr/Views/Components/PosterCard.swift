@@ -28,11 +28,12 @@ struct PosterCard: View{
                 RatingBadge(voteAverage: movie.voteAverage)
                     .padding(6)
             }
+            .aspectRatio(2/3, contentMode: .fit)
             VStack(alignment: .leading, spacing: 4){
                 Text(movie.title)
                     .foregroundStyle(Color.textPrimary)
                     .font(.subheadline.weight(.semibold))
-                    .lineLimit(2, reservesSpace: true)
+                    .lineLimit(2, reservesSpace: false)
                 Text(movie.releaseDate?.prefix(4) ?? "")
                     .foregroundStyle(Color.textSecondary)
                     .font(.footnote)

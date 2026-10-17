@@ -23,7 +23,6 @@ struct PosterImage: View{
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(2/3, contentMode: .fit)
                         .scaledToFill()
                 case .failure(_):
                     noView()
