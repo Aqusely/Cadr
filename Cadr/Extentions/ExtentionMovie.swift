@@ -6,7 +6,7 @@
 //
 
 extension Movie{
-    static let movieExample: [Movie] {[
+    static let movieExample: [Movie] = [
         Movie(
             id: 1,
             title: "В поисках немо, и еще что то для длинного названия",
@@ -35,5 +35,5 @@ extension Movie{
             releaseDate: "2025-01-01",
             backdropPath: "/nDxJJyA5giRhXx96q1sWbOUjMBI.jpg",
             posterPath: nil)
-    ]}
+    ]
 }

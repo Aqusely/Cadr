@@ -14,6 +14,7 @@ struct MockMovieService: MovieService{
             try await Task.sleep(for: .seconds(3))
             return TakeAnswerFromServer(page: 1, results: Movie.movieExample)
         }else{
+            try await Task.sleep(for: .seconds(3))
             throw APIError.unexpectedError
         }
     }
