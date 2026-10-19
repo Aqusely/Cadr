@@ -7,17 +7,11 @@
 
 import Observation
 
-enum MainViewState {
-    case loading
-    case success([Movie])
-    case error(APIError)
-}
-
 @MainActor
 @Observable
 final class HomeViewModel{
     private let movieService: MovieService
-    var state: MainViewState = .loading
+    var state: ViewState<[Movie]> = .loading
     
     init(movieService: MovieService) {
         self.movieService = movieService
