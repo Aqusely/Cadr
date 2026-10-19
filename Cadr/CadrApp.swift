@@ -11,7 +11,7 @@ import SwiftUI
 struct CadrApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(viewModel: HomeViewModel(movieService: TMDBMovieService()))
         }
     }
 }

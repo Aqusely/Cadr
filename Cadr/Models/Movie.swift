@@ -50,6 +50,7 @@ nonisolated struct Movie: Codable, Identifiable {
     let releaseDate: String?
     let backdropPath: String?
     let posterPath: String?
+
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -58,6 +59,7 @@ nonisolated struct Movie: Codable, Identifiable {
         case voteAverage = "vote_average"
         case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
+        
     }
 }
 
