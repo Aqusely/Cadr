@@ -37,3 +37,26 @@ extension Movie{
             posterPath: nil)
     ]
 }
+
+extension MovieDetails{
+    static let detailsExample: MovieDetails  = MovieDetails(
+            id: 137696,
+            title: "В поисках немо",
+            voteAverage: 8.4,
+            genres: [
+                Genre(
+                    id: 16,
+                    name: "Мультфильм"),
+                Genre(
+                    id: 10751,
+                    name: "Семейный"),
+                Genre(
+                    id: 12,
+                    name: "Приключения")
+            ],
+            releaseDate: "2003-05-30",
+            overview: "Nemo, an adventurous young clownfish, is unexpectedly taken from his Great Barrier Reef home to a dentist's office aquarium. It's up to his worrisome father Marlin and a friendly but forgetful fish Dory to bring Nemo home -- meeting vegetarian sharks, surfer dude turtles, hypnotic jellyfish, hungry seagulls, and more along the way.",
+            backdropPath: "/yzqaKAhglTrkeOfuIXYYArf0WnA.jpg",
+            posterPath: "/cCovtlN16ykvyFYnzKyv3dFtceG.jpg",
+            runtime: 100)
+}

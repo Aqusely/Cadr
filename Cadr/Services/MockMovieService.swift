@@ -28,6 +28,12 @@ struct MockMovieService: MovieService{
     }
     
     func movieDetails(for id: Int) async throws -> MovieDetails {
-        throw APIError.unexpectedError
+        if !shouldFail {
+            try await Task.sleep(for: .seconds(3))
+            return MovieDetails.detailsExample
+        }else{
+            try await Task.sleep(for: .seconds(3))
+            throw APIError.unexpectedError
+        }
     }
 }

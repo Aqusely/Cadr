@@ -13,7 +13,7 @@ final class DetailViewModel {
     private let movieService: MovieService
     var state: ViewState<MovieDetails> = .loading
     
-    init(movieService: MovieService, id: Int) {
+    init(movieService: MovieService) {
         self.movieService = movieService
     }
     
