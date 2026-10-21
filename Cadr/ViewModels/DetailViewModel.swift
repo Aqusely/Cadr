@@ -11,13 +11,15 @@ import Observation
 @Observable
 final class DetailViewModel {
     private let movieService: MovieService
+    private let id: Int
     var state: ViewState<MovieDetails> = .loading
     
-    init(movieService: MovieService) {
+    init(movieService: MovieService, id: Int) {
         self.movieService = movieService
+        self.id = id
     }
     
-    func loadMovieDetails(for id: Int) async {
+    func loadMovieDetails() async {
         state = .loading
         do{
             let result = try await movieService.movieDetails(for: id)
