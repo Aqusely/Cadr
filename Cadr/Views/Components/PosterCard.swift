@@ -24,7 +24,7 @@ struct PosterCard: View{
     var body: some View {
         VStack(alignment: .leading, spacing: 8){
             ZStack(alignment: .topTrailing){
-                PosterImage(movie: movie)
+                PosterImage(url: ImagePath.imageURL(imagePath: movie.posterPath, size: .small), cornerRadius: 12)
                 RatingBadge(voteAverage: movie.voteAverage)
                     .padding(6)
             }

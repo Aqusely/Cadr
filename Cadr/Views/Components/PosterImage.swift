@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PosterImage: View{
-    let movie: Movie
+    let url: URL?
+    let cornerRadius: CGFloat
     
     var body: some View{
-        if movie.posterPath != nil {
-            AsyncImage(url: ImagePath.imageURL(imagePath: movie.posterPath, size: .small)) { phase in
+        if url != nil {
+            AsyncImage(url: url) { phase in
                 switch phase {
                 case .empty:
                     ZStack{
@@ -30,7 +31,7 @@ struct PosterImage: View{
                     EmptyView()
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         }else {
             noView()
         }

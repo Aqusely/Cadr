@@ -12,7 +12,7 @@ struct MovieRow: View{
     
     var body: some View {
         HStack(spacing: 12){
-            PosterImage(movie: movie)
+            PosterImage(url: ImagePath.imageURL(imagePath: movie.posterPath, size: .small), cornerRadius: 8)
                 .frame(width: 53)
             VStack(alignment: .leading){
                 Text(movie.title)
