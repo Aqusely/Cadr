@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CadrApp: App {
+    
+    let service = TMDBMovieService()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewModel(movieService: TMDBMovieService()))
+            RootView(movieService: service, homeViewModel: HomeViewModel(movieService: service))
         }
     }
 }

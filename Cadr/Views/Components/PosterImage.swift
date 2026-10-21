@@ -17,7 +17,7 @@ struct PosterImage: View{
                 switch phase {
                 case .empty:
                     ZStack{
-                        RoundedRectangle(cornerRadius: 12).fill(Color.surface)
+                        RoundedRectangle(cornerRadius: cornerRadius).fill(Color.surface)
                         ProgressView()
                             .tint(Color.textSecondary)
                     }

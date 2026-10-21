@@ -62,7 +62,10 @@ struct HomeView: View{
                         ScrollView(.horizontal, showsIndicators: false){
                             LazyHStack(alignment: .top, spacing: 12){
                                 ForEach(movies, id: \.id) { movie in
-                                    PosterCard(movie: movie)
+                                    NavigationLink(value: movie){
+                                        PosterCard(movie: movie)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         }
@@ -120,5 +123,5 @@ struct HomeView: View{
 }
     
 #Preview {
-    HomeView(viewModel: HomeViewModel(movieService: MockMovieService(shouldFail: true)))
+    HomeView(viewModel: HomeViewModel(movieService: MockMovieService(shouldFail: false)))
 }
