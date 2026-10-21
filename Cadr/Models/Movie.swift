@@ -38,6 +38,24 @@ nonisolated struct MovieDetails: Codable, Identifiable{
         case posterPath = "poster_path"
         case runtime = "runtime"
     }
+    
+    func calculateRuntime() -> String {
+        guard let duration = runtime, duration != 0 else { return ""}
+        
+        let hours = duration / 60
+        let minutes = duration % 60
+        
+        switch duration{
+        case 1..<60:
+            return "\(minutes) мин"
+        case 60:
+            return "1 ч"
+        case 61...:
+            return "\(hours) ч \(minutes) мин"
+        default:
+            return "\(hours) ч \(minutes) мин"
+        }
+    }
 }
 
 // Для списков
