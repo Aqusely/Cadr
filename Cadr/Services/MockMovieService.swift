@@ -5,6 +5,7 @@
 //  Created by Наливайко Кирилл on 19.10.2026.
 //
 
+import Foundation
 struct MockMovieService: MovieService{
     
     let shouldFail: Bool
@@ -21,7 +22,10 @@ struct MockMovieService: MovieService{
     
     func searchMovies(for query: String) async throws -> TakeAnswerFromServer<Movie> {
         if !shouldFail{
-            return TakeAnswerFromServer(page: 1, results: Movie.movieExample)
+            let filtered = Movie.movieExample.filter{ movie in
+                movie.title.localizedCaseInsensitiveContains(query)
+            }
+            return TakeAnswerFromServer(page: 1, results: filtered)
         }else {
             throw APIError.unexpectedError
         }

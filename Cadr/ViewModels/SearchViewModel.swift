@@ -20,7 +20,7 @@ final class SearchViewModel{
     
     func searchMovie() async {
         let text = textRequest.trimmingCharacters(in: .whitespacesAndNewlines) //Убираем пробелы
-        guard text != "" else {
+        guard !text.isEmpty else {
             state = .idle
             return
         }
