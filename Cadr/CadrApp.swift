@@ -14,7 +14,7 @@ struct CadrApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView(movieService: service, homeViewModel: HomeViewModel(movieService: service))
+            RootView(movieService: service, homeViewModel: HomeViewModel(movieService: service), searchViewModel: SearchViewModel(movieService: service))
         }
     }
 }
