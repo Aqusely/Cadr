@@ -96,6 +96,8 @@ struct TMDBMovieService: MovieService {
         }catch let error as URLError {
             if error.code.rawValue == -1009 {
                 throw APIError.noNetwork
+            }else if error.code == .cancelled{
+                throw CancellationError()
             }else{
                 throw APIError.unexpectedError
             }
@@ -103,6 +105,8 @@ struct TMDBMovieService: MovieService {
             throw error
         }catch is DecodingError{
             throw APIError.decodingFailed
+        }catch is CancellationError{
+            throw CancellationError()
         }catch {
             throw APIError.unexpectedError
         }
